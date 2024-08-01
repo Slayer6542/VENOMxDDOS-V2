@@ -231,12 +231,12 @@ def send_welcome(message):
 def handle_message(message):
     if message.text == "Instant Plan 🧡":
         bot.reply_to(message, "*Instant Plan selected*", parse_mode='Markdown')
-    elif message.text == "Instant++ Plan 💥":
+    if message.text == "Instant++ Plan 💥":
         bot.reply_to(message, "*Instant++ Plan selected*", parse_mode='Markdown')
         attack_command(message)
-    elif message.text == "Canary Download✔️":
+    if message.text == "Canary Download✔️":
         bot.send_message(message.chat.id, "*Please use the following link for Canary Download: https://t.me/V3NOM_CHEAT/47*", parse_mode='Markdown')
-    elif message.text == "My Account🏦":
+    if message.text == "My Account🏦":
         user_id = message.from_user.id
         user_data = users_collection.find_one({"user_id": user_id})
         if user_data:
@@ -251,12 +251,10 @@ def handle_message(message):
         else:
             response = "*No account information found. Please contact the administrator.*"
         bot.reply_to(message, response, parse_mode='Markdown')
-    elif message.text == "Help❓":
+    if message.text == "Help❓":
         bot.reply_to(message, "*Help selected*", parse_mode='Markdown')
-    elif message.text == "Contact admin✔️":
-        bot.reply_to(message, "*Contact admin @venomXcrazy*", parse_mode='Markdown')
-    else:
-        bot.reply_to(message, "*Invalid option*", parse_mode='Markdown')
+    if message.text == "Contact admin✔️":
+        bot.reply_to(message, "*Contact admin @SLAYER_Rockzzz*", parse_mode='Markdown')
 
 if __name__ == "__main__":
     asyncio_thread = Thread(target=start_asyncio_thread, daemon=True)
